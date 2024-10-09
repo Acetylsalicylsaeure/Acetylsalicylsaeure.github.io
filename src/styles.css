@@ -190,3 +190,81 @@ table {
 }
 
 
+/* Navigation styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: var(--header-footer-text);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: var(--header-footer-bg);
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown ul {
+    display: block;
+}
+
+.dropdown ul li {
+    margin: 0;
+}
+
+.dropdown ul li a {
+    padding: 10px;
+    display: block;
+}
+
+.dropdown ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Responsive design for navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .dropdown {
+        position: static;
+        display: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    nav ul li:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown ul li a {
+        padding-left: 20px;
+    }
+}
