@@ -2,7 +2,7 @@
 
 # Variables
 PANDOC = pandoc
-PANDOC_OPTIONS = --standalone --template=src/base.html --metadata title="My Website" --mathjax
+PANDOC_OPTIONS = --standalone --template=src/base.html --metadata title="Acetylsalicylsaeure" --mathjax
 PAGES_DIR = pages
 SRC_DIR = src
 DOCS_DIR = docs
