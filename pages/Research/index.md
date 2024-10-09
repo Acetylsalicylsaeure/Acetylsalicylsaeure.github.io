@@ -1,0 +1,1 @@
+I did my BSc in chemistry, writing my thesis in organometallic synthesis of dyes and using ML to predict molecular properties. Now, I'm doing a Masters in Theoretical Physics, a bit of a switch. Stay tuned!

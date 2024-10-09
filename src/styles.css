@@ -1,3 +1,5 @@
+@import 'dropdown.css';
+
 :root {
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
@@ -189,7 +191,6 @@ table {
     }
 }
 
-
 /* Navigation styles */
 nav ul {
     list-style-type: none;
@@ -200,7 +201,8 @@ nav ul {
 
 nav ul li {
     position: relative;
-    margin-right: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 nav ul li a {
@@ -212,36 +214,6 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.dropdown {
-    display: none;
-    position: absolute;
-    background-color: var(--header-footer-bg);
-    min-width: 150px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-nav ul li:hover .dropdown {
-    display: block;
-}
-
-.dropdown ul {
-    display: block;
-}
-
-.dropdown ul li {
-    margin: 0;
-}
-
-.dropdown ul li a {
-    padding: 10px;
-    display: block;
-}
-
-.dropdown ul li a:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
 /* Responsive design for navigation */
 @media (max-width: 768px) {
     nav ul {
@@ -251,20 +223,5 @@ nav ul li:hover .dropdown {
     nav ul li {
         margin-right: 0;
         margin-bottom: 10px;
-    }
-
-    .dropdown {
-        position: static;
-        display: none;
-        background-color: transparent;
-        box-shadow: none;
-    }
-
-    nav ul li:hover .dropdown {
-        display: block;
-    }
-
-    .dropdown ul li a {
-        padding-left: 20px;
     }
 }

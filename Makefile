@@ -1,31 +1,27 @@
-# Makefile for compiling Markdown to HTML
+# Makefile for compiling Markdown to HTML and copying all src files
 
 # Variables
 PANDOC = pandoc
-PANDOC_OPTIONS = --standalone --template=src/base.html --metadata title="My Website"
+PANDOC_OPTIONS = --standalone --template=src/base.html --metadata title="My Website" --mathjax
 PAGES_DIR = pages
 SRC_DIR = src
 DOCS_DIR = docs
 MARKDOWN_FILES = $(shell find $(PAGES_DIR) -name '*.md')
 HTML_FILES = $(patsubst $(PAGES_DIR)/%.md,$(DOCS_DIR)/%.html,$(MARKDOWN_FILES))
+SRC_FILES = $(wildcard $(SRC_DIR)/*)
 
 # Default target
-all: $(HTML_FILES) $(DOCS_DIR)/styles.css $(DOCS_DIR)/darkMode.js $(DOCS_DIR)/navigation.js $(DOCS_DIR)/navStructure.js
+all: $(HTML_FILES) copy_src_files $(DOCS_DIR)/navStructure.js
 
 # Rule to convert Markdown to HTML
 $(DOCS_DIR)/%.html: $(PAGES_DIR)/%.md $(SRC_DIR)/base.html
 	@mkdir -p $(@D)
 	$(PANDOC) $(PANDOC_OPTIONS) -o $@ $<
 
-# Rule to copy CSS file
-$(DOCS_DIR)/styles.css: $(SRC_DIR)/styles.css
+# Rule to copy all files from src to docs
+copy_src_files: $(SRC_FILES)
 	@mkdir -p $(DOCS_DIR)
-	cp $< $@
-
-# Rule to copy JavaScript files
-$(DOCS_DIR)/%.js: $(SRC_DIR)/%.js
-	@mkdir -p $(DOCS_DIR)
-	cp $< $@
+	cp -R $(SRC_DIR)/* $(DOCS_DIR)/
 
 # Generate navigation data using Python script
 $(DOCS_DIR)/navStructure.js: $(MARKDOWN_FILES)
@@ -36,4 +32,4 @@ clean:
 	rm -rf $(DOCS_DIR)
 
 # Phony targets
-.PHONY: all clean
+.PHONY: all clean copy_src_files

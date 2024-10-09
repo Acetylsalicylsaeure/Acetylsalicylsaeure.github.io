@@ -1,10 +1,14 @@
 const navStructure = {
-  "test": {
-    "testpage": true,
-    "testpage2": true
+  "Coding": {
+    "pyMOPAC": true,
+    "Platten": true
   },
-  "test2": {
-    "another": true,
-    "index": true
+  "Research": {
+    "index": true,
+    "Molecule_Generator": true,
+    "BSc_Thesis": true
+  },
+  "Curiosities": {
+    "LaTeX": true
   }
 };
