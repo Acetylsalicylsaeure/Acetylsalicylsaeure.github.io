@@ -1,4 +1,4 @@
-Pandoc has great $\LaTeX$ support, isn't this great?
+Pandoc has great $\LaTeX$ support, isn't this amazing?
 
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
