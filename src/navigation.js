@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     dropdown.className = 'dropdown';
                     const dropdownUl = document.createElement('ul');
 
+                    // Add index link to dropdown for mobile
+                    if (files.hasOwnProperty('index')) {
+                        const indexLi = document.createElement('li');
+                        const indexA = document.createElement('a');
+                        indexA.href = `/${directory}/index.html`;
+                        indexA.textContent = 'Index';
+                        indexA.className = 'mobile-only';
+                        indexLi.appendChild(indexA);
+                        dropdownUl.appendChild(indexLi);
+                    }
+
                     fileEntries.forEach(([fileName, _]) => {
                         const fileLi = document.createElement('li');
                         const fileA = document.createElement('a');
@@ -42,6 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     dropdown.appendChild(dropdownUl);
                     li.appendChild(dropdown);
+
+                    // Add click event for mobile
+                    a.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                        }
+                    });
                 }
             }
 
@@ -52,4 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     nav.appendChild(createNavigation(navStructure));
+
+    // Close dropdowns when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && !nav.contains(e.target)) {
+            const dropdowns = nav.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        }
+    });
 });

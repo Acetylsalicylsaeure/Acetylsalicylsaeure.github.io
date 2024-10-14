@@ -39,6 +39,10 @@ nav ul li:hover .dropdown {
     background-color: rgba(255,255,255,0.1);
 }
 
+.mobile-only {
+    display: none;
+}
+
 /* Responsive design for dropdown */
 @media (max-width: 768px) {
     .dropdown {
@@ -51,10 +55,14 @@ nav ul li:hover .dropdown {
     }
 
     nav ul li:hover .dropdown {
-        display: block;
+        display: none;
     }
 
     .dropdown ul li a {
         padding-left: 20px;
+    }
+
+    .mobile-only {
+        display: block;
     }
 }
