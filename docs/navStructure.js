@@ -5,8 +5,8 @@ const navStructure = {
   },
   "Research": {
     "index": true,
-    "Molecule_Generator": true,
-    "BSc_Thesis": true
+    "BSc_Thesis": true,
+    "Molecule_Generator": true
   },
   "Curiosities": {
     "LaTeX": true
